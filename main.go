@@ -47,11 +47,17 @@ func CalculateDigitalRoot(text []byte) string {
 
 func SumCharacters(text []byte) int {
 	checkArray := " abcdefghijklmnopqrstuvwxyz"
+	checkArrayNumbers := "0123456789"
 	sum := 0
 	for i := 0; i < len(text); i++ {
 		charValue := strings.IndexByte(checkArray, text[i])
 		if charValue != -1 {
 			sum += charValue
+		} else {
+			charValue = strings.IndexByte(checkArrayNumbers, text[i])
+			if charValue != -1 {
+				sum += charValue
+			}
 		}
 	}
 	return sum
