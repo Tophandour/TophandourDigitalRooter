@@ -20,6 +20,8 @@ func main() {
 		if err != nil {
 			fmt.Println(text)
 		} else {
+			lowercase := strings.ToLower(string(bytes))
+			bytes = []byte(lowercase)
 			fmt.Println("Digital root is: " + CalculateDigitalRoot(bytes))
 		}
 		fmt.Println("Continue? Input n to quit, anything else to continue")
@@ -44,7 +46,6 @@ func CalculateDigitalRoot(text []byte) string {
 }
 
 func SumCharacters(text []byte) int {
-	//checkArray := []byte{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}
 	checkArray := " abcdefghijklmnopqrstuvwxyz"
 	sum := 0
 	for i := 0; i < len(text); i++ {
